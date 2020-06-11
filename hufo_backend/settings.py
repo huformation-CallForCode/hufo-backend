@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
     'app'
 ]
 
@@ -87,6 +88,13 @@ DATABASES = {
         'USER': env('POSTGRES_USERNAME'),
         'PASSWORD': env('POSTGRES_PASSWORD')
     }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://%s:%s' % (env('REDIS_HOST'), env('REDIS_PORT')),
+    },
 }
 
 REST_FRAMEWORK = {

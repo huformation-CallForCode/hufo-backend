@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from app.models.card_info import CardInfo
+
+admin.site.register(CardInfo)
