@@ -5,7 +5,7 @@ from app.models import WarningCardInfo
 class CardInfoSerializer(serializers.ModelSerializer):
   class Meta:
     model = WarningCardInfo
-    fields = ('id', 'title', 'subtitle')
+    fields = ('id', 'title', 'subtitle', 'image_url')
 
 class CardListSerializer(serializers.Serializer):
   cards = CardInfoSerializer(required=False, many=True)
