@@ -1,18 +1,13 @@
 from django.db import models
 
+from app.enums import SOLVE_CHOICES
 
-class CardInfo(models.Model):
-  CLIMATE = 'climate'
-  ARTIC = 'artic'
-  LIFE = 'life'
 
-  POSITIVE_CHOICES = (
-    (CLIMATE, 'Climate'),
-    (ARTIC, 'Artic'),
-    (LIFE, 'Life'),
-  )
-
+class WarningCardInfo(models.Model):
   title = models.TextField(max_length=100)
   subtitle = models.CharField(max_length=100)
-  category = models.CharField(max_length=20, choices=POSITIVE_CHOICES, default=None)
-  is_positive = models.BooleanField()
+  
+class SolveCardInfo(models.Model):
+  title = models.TextField(max_length=100)
+  subtitle = models.CharField(max_length=100)
+  category = models.CharField(max_length=10, choices=SOLVE_CHOICES, default=None)
