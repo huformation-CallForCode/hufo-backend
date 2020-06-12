@@ -39,3 +39,14 @@ class Co2List(APIView):
     result = [year, set(country), country_data]      
 
     return Response(result, status=status.HTTP_200_OK)
+
+class Co2(APIView):
+  @swagger_auto_schema(
+    responses={
+    200:Co2Serializer()
+  })
+  def get(self, request):
+    query = Co2Emission.objects.filter(year=2017).filter(country='South Korea').first()
+
+    serializer = Co2Serializer(query)
+    return Response(serializer.data, status=status.HTTP_200_OK)
