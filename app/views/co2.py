@@ -21,4 +21,21 @@ class Co2List(APIView):
 
     serializer = Co2Serializer(queryset, many=True)
 
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    data = serializer.data
+
+    result = []
+    country = []
+    year = []
+    country_data = {}
+    for da in data:
+      year.append(da['year'])
+      country.append(da['country'])
+
+      if da['country'] not in country_data.keys():
+        country_data[da['country']] = [da['amount']]
+      else:
+        country_data[da['country']].append(da['amount'])
+
+    result = [year, set(country), country_data]      
+
+    return Response(result, status=status.HTTP_200_OK)
