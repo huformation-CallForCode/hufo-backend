@@ -1,7 +1,7 @@
-CLIMATE = 'climate'
-ARTIC = 'artic'
-LIFE = 'life'
+DAILY = 'daily'
+EVENT = 'event'
 
-POSITIVE_CHOICES = (
-  CLIMATE, ARTIC, LIFE
+SOLVE_CHOICES = (
+  (DAILY, DAILY),
+  (EVENT, EVENT)
 )

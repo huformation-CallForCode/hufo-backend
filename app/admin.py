@@ -1,5 +1,6 @@
 from django.contrib import admin
 
-from app.models.card_info import CardInfo
+from app.models.card_info import WarningCardInfo, SolveCardInfo
 
-admin.site.register(CardInfo)
+admin.site.register(WarningCardInfo)
+admin.site.register(SolveCardInfo)
