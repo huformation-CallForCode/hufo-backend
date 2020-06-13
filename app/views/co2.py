@@ -36,7 +36,7 @@ class Co2List(APIView):
       else:
         country_data[da['country']].append(da['amount'])
 
-    result = [year, set(country), country_data]      
+    result = [set(year), set(country), country_data]      
 
     return Response(result, status=status.HTTP_200_OK)
 
